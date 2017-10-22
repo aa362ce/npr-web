@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 
 import { ImageUploadService } from './image-upload.service';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { HttpModule } from '@angular/http';
 
 // Define the routes
 const ROUTES = [
@@ -31,7 +32,8 @@ const ROUTES = [
   imports: [
     BrowserModule,
     AlertModule.forRoot(),
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    HttpModule
   ],
   providers: [ImageUploadService],
   bootstrap: [AppComponent]

@@ -4,12 +4,27 @@
       <input #fileInput type="file" name="filetoupload" class="file">
       <div class="input-group col-xs-12">
         <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-        <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+        <input type="text" class="form-control input-lg" disabled placeholder="{{fileName}}">
         <span class="input-group-btn">
           <button (click)="selectFile()" class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
         </span>
       </div>
     </div>
-    <input class="btn btn-primary" type="submit" id="submit" value="Submit" />
+    <button (click)="upLoadFile()" class="browse btn btn-primary input-lg" type="button">Upload</button>
   </form>
 </div>
+
+<!--
+  <tr *ngFor="let hero of heroes; let even = even; let odd = odd" 
+  href="http://localhost:3000/uploads/{{fileName}}"
+-->
+<h6>Possible matches</h6>
+<ul *ngFor="let result of analysis.results">
+  <li>{{result.plate}}=={{result.confidence}}</li>
+  <ul *ngFor="let can of result.candidates">
+    <li>{{can.plate}}=={{can.confidence}}</li>
+  </ul>
+</ul>
+
+<!--<button (click)="reloadImage()" class="btn-primary" >uploaded image</button>-->
+<img [src]="link"/>

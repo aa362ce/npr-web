@@ -8,9 +8,9 @@ export class ImageUploadService {
   constructor(private http: Http) { }
 
   // Get all posts from the API
-  uploadImage() {
-    return this.http.post('/fileupload',null)
-      .map(res => res.json());
+  uploadImage(formData) {
+    let url = "/fileUpload";
+    return this.http.post(url,formData);
   }
 
 }

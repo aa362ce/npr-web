@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 
 // Set our api routes
 app.use('/api', api);
@@ -28,9 +29,9 @@ app.use('/api', api);
 app.use('/fileupload', (req, res) => {
   var form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
-    var oldpath = files.filetoupload.path;
-    var newpath = __dirname + '/uploads/' + files.filetoupload.name;
-    var c2 = command + files.filetoupload.name;
+    var oldpath = files.file.path;
+    var newpath = __dirname + '/uploads/' + files.file.name;
+    var c2 = command + files.file.name;
     fs.rename(oldpath, newpath, function (err) {
       if (err) throw err;
       exec(c2, function (error, stdout, stderr) {
