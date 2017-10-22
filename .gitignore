@@ -1,5 +1,7 @@
 node_modules
-uploads/*
+uploads/*.jpeg
+uploads/*.jpg
+!uploads/*.txt
 package-lock.json
 
 

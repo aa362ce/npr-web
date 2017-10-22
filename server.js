@@ -4,7 +4,7 @@ var fs = require('fs');
 var exec = require('child_process').exec;
 
 //var command ="docker run -it --rm -v $(pwd):/data:ro openalpr -c eu -j *.jpg";
-var command ="docker run -t --rm -v /Users/ashish/projects/npr-web/uploads:/data:ro openalpr -c eu -j ";
+var command ="docker run -t --rm -v "+ __dirname+"/uploads:/data:ro openalpr -c eu -j ";
 
 http.createServer(function (req, res) {
   if (req.url == '/fileupload') {
