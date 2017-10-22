@@ -1,0 +1,14 @@
+{
+  "name": "npr-web",
+  "version": "1.0.0",
+  "description": "Web app to detect number plates using image upload",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.1.1"
+  }
+}
