@@ -3,10 +3,13 @@
     <div class="form-group">
       <input #fileInput type="file" name="filetoupload" class="file">
       <div class="input-group col-xs-12">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-picture"></i>
+        </span>
         <input type="text" class="form-control input-lg" disabled placeholder="{{fileName}}">
         <span class="input-group-btn">
-          <button (click)="selectFile()" class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+          <button (click)="selectFile()" class="browse btn btn-primary input-lg" type="button">
+            <i class="glyphicon glyphicon-search"></i> Browse</button>
         </span>
       </div>
     </div>
@@ -14,17 +17,31 @@
   </form>
 </div>
 
-<!--
-  <tr *ngFor="let hero of heroes; let even = even; let odd = odd" 
-  href="http://localhost:3000/uploads/{{fileName}}"
--->
-<h6>Possible matches</h6>
-<ul *ngFor="let result of analysis.results">
-  <li>{{result.plate}}=={{result.confidence}}</li>
-  <ul *ngFor="let can of result.candidates">
-    <li>{{can.plate}}=={{can.confidence}}</li>
-  </ul>
-</ul>
+<br/>
+<div class="container">
+  <div class="col-md-8 col-xs-12">
+    <img [src]="link" />
+  </div>
+  <div class="col-md-4 col-xs-12">
+    <div *ngFor="let result of analysis.results">
+      <div>
+      <span class="alert alert-success h4"><strong>{{result.plate}}</strong></span>
+      <br/>
+      <br/>
+      <table class="table-hover table-condensed table-bordered">
+        <thead>
+          <tr>
+            <th>Plate</th>
+            <th>Accuracy</th>
+          </tr>
+        </thead>
+        <tr class="info" *ngFor="let can of result.candidates">
+          <td>{{can.plate}}</td>
+          <td>{{can.confidence}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </div>
 
-<!--<button (click)="reloadImage()" class="btn-primary" >uploaded image</button>-->
-<img [src]="link"/>
+</div>
